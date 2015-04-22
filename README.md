@@ -19,7 +19,7 @@ Edit bin/initialize_data.py and add compliments as desired. You can substitute u
 or adjective) per sentence. The type field indicates what type of word to substitute. You can also
 add a sentence to be used as-is, by specifying type=None. E.g.:
  
-    sentences = [{'type': 'adjective', 'sentence': 'I really appreciate how {} you are.'},
+    sentences = [{'type': 'adjective', 'sentence': 'I really appreciate how {0} you are.'},
                  ...
                  {'type': None, 'sentence': 'My world is a better place with you in it.'}]
 
@@ -45,5 +45,5 @@ Run tests:
 Run bot:
 
     ./bin/initialize_data.py            # Clears any current data and adds compliments to datastore
-    ./bin/run_bot.sh reply_to_mentions  # Check twitter stream for mentions, and reply
-    ./bin/run_bot.sh post_message       # Post a message to twitter
+    ./bin/run_bot.py reply_to_mentions  # Check twitter stream for mentions, and reply
+    ./bin/run_bot.py post_message       # Post a message to twitter

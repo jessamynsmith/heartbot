@@ -4,6 +4,7 @@ shared = common
 [common]
 twitter = 1.17.0
 pymongo = 3.0
+twitterbot = 0.1.5
 
 [development]
 coverage = 3.7.1
@@ -20,4 +21,5 @@ pipreq = 0.4
 py = 1.4.26
 tox = 1.9.2
 virtualenv = 12.1.1
+requests = 2.6.0
 

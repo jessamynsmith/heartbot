@@ -35,3 +35,4 @@ nosetests.xml
 
 settings.py
 logs/*
+.since_id.txt
