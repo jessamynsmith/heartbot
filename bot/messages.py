@@ -16,7 +16,12 @@ class ComplimentProvider(object):
                                     "environment variable.")
         self.mongo = get_mongo(mongo_uri)
 
-    def create(self):
+    def create(self, mention):
+        """
+        Create a message
+        :param mention: JSON object containing mention details from Twitter
+        :return: a message
+        """
         num_records = self.mongo.sentences.count()
         if num_records < 1:
             return 'No compliments found.'

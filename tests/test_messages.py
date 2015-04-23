@@ -25,7 +25,7 @@ class TestComplimentProvider(unittest.TestCase):
             self.assertEqual(error, '{0}'.format(e))
 
     def test_create_no_data(self):
-        message = self.provider.create()
+        message = self.provider.create({})
 
         self.assertEqual('No compliments found.', message)
 
@@ -33,7 +33,7 @@ class TestComplimentProvider(unittest.TestCase):
         sentence = {'type': None, 'sentence': 'You shine brightly.'}
         self.provider.mongo['sentences'].insert_one(sentence)
 
-        message = self.provider.create()
+        message = self.provider.create({})
 
         self.assertEqual('You shine brightly.', message)
 
@@ -42,6 +42,6 @@ class TestComplimentProvider(unittest.TestCase):
         self.provider.mongo['sentences'].insert_one(sentence)
         self.provider.mongo['words'].insert_one({'type': 'noun', 'word': 'courage'})
 
-        message = self.provider.create()
+        message = self.provider.create({})
 
         self.assertEqual('I value your courage.', message)

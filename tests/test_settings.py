@@ -2,6 +2,7 @@ import unittest
 
 from mock import patch
 
+from bot.messages import ComplimentProvider
 from bot.settings import HeartBotSettings
 
 
@@ -14,4 +15,4 @@ class TestSettings(unittest.TestCase):
         settings = HeartBotSettings()
 
         self.assertEqual('bogus', settings.OAUTH_TOKEN)
-        self.assertEqual('bot.messages.ComplimentProvider', settings.MESSAGE_PROVIDER)
+        self.assertEqual(settings.MESSAGE_PROVIDER, ComplimentProvider)
