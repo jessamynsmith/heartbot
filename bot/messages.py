@@ -16,10 +16,11 @@ class ComplimentProvider(object):
                                     "environment variable.")
         self.mongo = get_mongo(mongo_uri)
 
-    def create(self, mention):
+    def create(self, mention, max_message_length):
         """
         Create a message
         :param mention: JSON object containing mention details from Twitter
+        :param max_message_length: Maximum allowable length for created message
         :return: a message
         """
         num_records = self.mongo.sentences.count()
