@@ -4,7 +4,9 @@ heartbot
 [![Build Status](https://circleci.com/gh/jessamynsmith/heartbot.svg?style=shield)](https://circleci.com/gh/jessamynsmith/heartbot)
 [![Coverage Status](https://coveralls.io/repos/jessamynsmith/heartbot/badge.svg?branch=master)](https://coveralls.io/r/jessamynsmith/heartbot?branch=master)
 
-Replies to any twitter mentions with a compliment.
+TwitterBot that replies to any mentions with a compliment, or posts a random compliment.
+Please read Twitter's [Automation rules and best practices](https://support.twitter.com/articles/76915-automation-rules-and-best-practices/)
+before setting up a bot.
 
 Settings are populated from environment variables. The authentication variables can be
 [obtained from your Twitter account](https://dev.twitter.com/oauth/overview/application-owner-access-tokens/).
