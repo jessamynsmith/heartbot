@@ -3,16 +3,7 @@ import unittest
 from mock import patch
 from twitter_bot import SettingsError
 
-from bot.messages import get_mongo, ComplimentProvider
-
-
-class TestGetMongo(unittest.TestCase):
-
-    def test_get_mongo_no_uri(self):
-        self.assertEqual(None, get_mongo('mongodb://bogus'))
-
-    def test_get_mongo_with_uri(self):
-        self.assertFalse(get_mongo('mongodb://127.0.0.1/heartbottest') is None)
+from bot.messages import ComplimentProvider
 
 
 class TestComplimentProvider(unittest.TestCase):
@@ -28,7 +19,7 @@ class TestComplimentProvider(unittest.TestCase):
 
         try:
             ComplimentProvider()
-            self.fail("Should not be able to instantiate settings without mongo")
+            self.fail("Should not be able to instantiate provider without mongo")
         except SettingsError as e:
             error = "You must supply mongo_uri or set the MONGOLAB_URI environment variable."
             self.assertEqual(error, '{0}'.format(e))

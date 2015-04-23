@@ -1,21 +1,9 @@
 import random
 import os
 
-import pymongo
 from twitter_bot import SettingsError
 
-
-def get_mongo(mongo_uri):
-    """ Get mongo database instance based on uri
-    :param mongo_uri: connection string uri for mongo
-    :return: mongo instance, with database selected
-    """
-    mongo = pymongo.MongoClient(mongo_uri)
-    if mongo:
-        config = pymongo.uri_parser.parse_uri(mongo_uri)
-        if config['database']:
-            return mongo[config['database']]
-    return None
+from bot.mongo_wrapper import get_mongo
 
 
 class ComplimentProvider(object):

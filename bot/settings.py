@@ -5,6 +5,5 @@ class HeartBotSettings(Settings):
     """ Settings for HeartBot """
     def __init__(self):
         super(HeartBotSettings, self).__init__()
-
-        # Messages provider
         self.MESSAGE_PROVIDER = 'bot.messages.ComplimentProvider'
+        self.SINCE_ID_PROVIDER = 'bot.since_id.MongoProvider'

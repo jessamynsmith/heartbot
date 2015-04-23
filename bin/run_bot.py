@@ -3,7 +3,7 @@
 import logging
 import sys
 
-from twitter_bot import Runner
+from twitter_bot import BotRunner
 
 from bot.settings import HeartBotSettings
 
@@ -19,5 +19,5 @@ if __name__ == '__main__':
         print("You must specify a single command, either 'post_message' or 'reply_to_mentions'")
         result = 1
     else:
-        result = Runner().go(HeartBotSettings(), sys.argv[1])
+        result = BotRunner().go(HeartBotSettings(), sys.argv[1])
     sys.exit(result)
