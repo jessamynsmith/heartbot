@@ -4,13 +4,25 @@ heartbot
 [![Build Status](https://circleci.com/gh/jessamynsmith/heartbot.svg?style=shield)](https://circleci.com/gh/jessamynsmith/heartbot)
 [![Coverage Status](https://coveralls.io/repos/jessamynsmith/heartbot/badge.svg?branch=master)](https://coveralls.io/r/jessamynsmith/heartbot?branch=master)
 
-Replies to any twitter mentions with a compliment. This project is already set up to be deployed to heroku.
+Replies to any twitter mentions with a compliment.
 
-Note: Must set up 4 environment variables:
+Settings are populated from environment variables. The authentication variables can be
+[obtained from your Twitter account](https://dev.twitter.com/oauth/overview/application-owner-access-tokens/).
 - TWITTER_CONSUMER_KEY
 - TWITTER_CONSUMER_SECRET
 - TWITTER_OAUTH_SECRET
 - TWITTER_OAUTH_TOKEN
+
+This project is set up to be deployed to heroku, using the Heroku Scheduler and RedisToGo addons.
+There are two scheduled tasks set up:
+
+    ./bin/run_bot.py post_message  # runs daily
+    ./bin/run_bot.py reply_to_mentions  # runs every 10 minutes
+ 
+You will also need to manually run the initialize data task initially, and any time you change the
+list of compliments:
+
+    heroku run ./bin/initialize_data.py 
 
 Add Compliments
 ---------------
@@ -28,19 +40,27 @@ I'm happy to merge pull requests with appropriate compliments!
 Development
 -----------
 
-Get source:
+Fork the project on github and git clone your fork, e.g.:
 
-    git clone https://github.com/jessamynsmith/heartbot
+    git clone https://github.com/<username>/heartbot.git
 
 Set up virtualenv:
 
-    mkvirtualenv heartbot --python=/path/to/python3
+    mkvirtualenv heartbot
     pip install -r requirements/development.txt
 
 Run tests:
 
     coverage run -m nose
     coverage report
+    
+Verify all supported Python versions:
+
+    tox
+    
+Check code style:
+
+    flake8
 
 Run bot:
 
