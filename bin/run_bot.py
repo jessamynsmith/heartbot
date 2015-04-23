@@ -10,7 +10,7 @@ from bot.settings import HeartBotSettings
 
 logging.basicConfig(filename='logs/twitter_bot.log',
                     filemode='a',
-                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    format='%(asctime)s %(name)s %(levelname)s %(message)s',
                     level=logging.DEBUG)
 
 
