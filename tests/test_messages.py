@@ -24,6 +24,14 @@ class TestComplimentProvider(unittest.TestCase):
             error = "You must supply mongo_uri or set the MONGOLAB_URI environment variable."
             self.assertEqual(error, '{0}'.format(e))
 
+    @patch('os.environ.get')
+    def test_constructor_with_mongo_env_var(self, mock_env_get):
+        mock_env_get.return_value = 'mongodb://localhost/heartbottest'
+
+        provider = ComplimentProvider()
+
+        self.assertTrue(provider.mongo is not None)
+
     def test_create_no_data(self):
         message = self.provider.create({}, max_message_length=140)
 

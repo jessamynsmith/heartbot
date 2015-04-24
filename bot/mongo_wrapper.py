@@ -7,8 +7,7 @@ def get_mongo(mongo_uri):
     :return: mongo instance, with database selected
     """
     mongo = pymongo.MongoClient(mongo_uri)
-    if mongo:
-        config = pymongo.uri_parser.parse_uri(mongo_uri)
-        if config['database']:
-            return mongo[config['database']]
+    config = pymongo.uri_parser.parse_uri(mongo_uri)
+    if config['database']:
+        return mongo[config['database']]
     return None

@@ -51,14 +51,15 @@ Set up virtualenv:
     mkvirtualenv heartbot
     pip install -r requirements/development.txt
 
-Run tests and check code style:
+Run tests with coverage (should be 100%) and check code style:
 
     coverage run -m nose
-    coverage report
+    coverage report -m
     flake8
-    
+
 Verify all supported Python versions:
 
+    pip install tox
     tox
 
 Run bot:
