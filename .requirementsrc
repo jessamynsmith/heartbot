@@ -4,7 +4,7 @@ shared = common
 [common]
 twitter = 1.17.0
 pymongo = 3.0
-twitterbot = 0.3.1
+twitterbot = 0.3.2
 
 [development]
 coverage = 4.0a5
