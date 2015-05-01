@@ -1,9 +1,10 @@
+from __future__ import absolute_import
 import random
 import os
 
 from twitter_bot import SettingsError
 
-from bot.mongo_wrapper import get_mongo
+from .mongo_wrapper import get_mongo
 
 
 class ComplimentProvider(object):

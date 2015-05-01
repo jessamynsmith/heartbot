@@ -1,7 +1,9 @@
+from __future__ import absolute_import
+
 from twitter_bot import Settings
 
-from bot.messages import ComplimentProvider
-from bot.since_id import MongoProvider
+from .messages import ComplimentProvider
+from .since_id import MongoProvider
 
 
 class HeartBotSettings(Settings):
