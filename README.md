@@ -10,12 +10,16 @@ before setting up a bot.
 
 Settings are populated from environment variables. The authentication variables can be
 [obtained from your Twitter account](https://dev.twitter.com/oauth/overview/application-owner-access-tokens/).
+You will need to set these locally to run the bot locally, and on heroku if you deploy there.
 - TWITTER_CONSUMER_KEY
 - TWITTER_CONSUMER_SECRET
 - TWITTER_OAUTH_SECRET
 - TWITTER_OAUTH_TOKEN
 
-This project is set up to be deployed to heroku, using the Heroku Scheduler and RedisToGo addons.
+You will need to set the following environment variable locally:
+export MONGOLAB_URI=mongodb://127.0.0.1/heartbot
+
+This project is set up to be deployed to heroku, using the Heroku Scheduler and MongoLab addons.
 There are two scheduled tasks set up:
 
     ./bin/run_bot.py post_message  # runs daily
@@ -24,7 +28,7 @@ There are two scheduled tasks set up:
 You will also need to manually run the initialize data task initially, and any time you change the
 list of compliments:
 
-    heroku run ./bin/initialize_data.py 
+    ./bin/initialize_data.py 
 
 Add Compliments
 ---------------

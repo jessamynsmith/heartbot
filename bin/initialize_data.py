@@ -40,6 +40,7 @@ sentences = [
 add_data(mongo, 'sentences', sentences)
 
 words = [
+    {'type': 'adjective', 'word': 'generous'},
     {'type': 'adjective', 'word': 'smart'},
     {'type': 'adjective', 'word': 'helpful'},
     {'type': 'adjective', 'word': 'kind'},
@@ -56,6 +57,7 @@ words = [
     {'type': 'adjective', 'word': 'inventive'},
     {'type': 'adjective', 'word': 'thoughtful'},
     {'type': 'adjective', 'word': 'intrepid'},
+    {'type': 'adjective', 'word': 'creative'},
     {'type': 'noun', 'word': 'intelligence'},
     {'type': 'noun', 'word': 'fortitude'},
     {'type': 'noun', 'word': 'kindness'},
@@ -66,6 +68,7 @@ words = [
     {'type': 'noun', 'word': 'brilliance'},
     {'type': 'noun', 'word': 'persistence'},
     {'type': 'noun', 'word': 'imagination'},
-    {'type': 'noun', 'word': 'generosity'}
+    {'type': 'noun', 'word': 'generosity'},
+    {'type': 'noun', 'word': 'creativity'},
 ]
 add_data(mongo, 'words', words)
