@@ -70,4 +70,36 @@ Run bot:
 
     ./bin/initialize_data.py            # Clears any current data and adds compliments to datastore
     ./bin/run_bot.py reply_to_mentions  # Check twitter stream for mentions, and reply
-    ./bin/run_bot.py post_message       # Post a message to twitter
+    ./bin/run_bot.py post_message       # Post a message to twitter    
+    
+    
+Continuous Integration and Deployment
+-------------------------------------
+
+This project is already set up for continuous integration and deployment using circleci, coveralls,
+and Heroku.
+
+Make a new Heroku app, and add the following addons:
+
+	Papertrail
+	MongoLab
+	Heroku Scheduler
+
+Enable the project on coveralls.io, and copy the repo token
+
+Enable the project on circleci.io, and under Project Settings -> Environment variables, add:
+
+    COVERALLS_REPO_TOKEN <value_copied_from_coveralls>
+    
+On circleci.io, under Project Settings -> Heroku Deployment, follow the steps to enable
+Heroku builds. At this point, you may need to cancel any currently running builds, then run
+a new build.
+
+Once your app is deployed successfully, initialize data on Heroku:
+
+    heroku run ./bin/initialize_data.py
+ 
+And then you can add the Scheduler tasks on Heroku:
+
+    ./bin/run_bot.py reply_to_mentions
+    ./bin/run_bot.py post_message
