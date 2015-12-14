@@ -71,5 +71,6 @@ words = [
     {'type': 'noun', 'word': 'imagination'},
     {'type': 'noun', 'word': 'generosity'},
     {'type': 'noun', 'word': 'creativity'},
+    {'type': 'noun', 'word': 'resolve'},
 ]
 add_data(mongo, 'words', words)
