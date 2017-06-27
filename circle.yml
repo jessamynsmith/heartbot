@@ -4,6 +4,7 @@ machine:
 
 test:
   override:
+    - pip install virtualenv
     - tox
 
 deployment:
