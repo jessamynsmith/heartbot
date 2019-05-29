@@ -7,7 +7,7 @@ CIRCLE=$1
 
 if [ $CIRCLE ]
 then
-    git push https://heroku:$HEROKU_API_KEY@git.heroku.com/heartbot.git master
+    git push https://heroku:$HEROKU_API_KEY@git.heroku.com/heartbotapp.git master
 else
     git push heroku master
 fi
