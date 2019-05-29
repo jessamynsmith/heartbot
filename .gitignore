@@ -35,3 +35,5 @@ nosetests.xml
 
 logs/*
 .since_id.txt
+
+venv/*
