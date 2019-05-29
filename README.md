@@ -1,5 +1,4 @@
-heartbot
-========
+# heartbot
 
 [![Build Status](https://circleci.com/gh/jessamynsmith/heartbot.svg?style=shield)](https://circleci.com/gh/jessamynsmith/heartbot)
 [![Coverage Status](https://coveralls.io/repos/jessamynsmith/heartbot/badge.svg?branch=master)](https://coveralls.io/r/jessamynsmith/heartbot?branch=master)
@@ -30,8 +29,8 @@ list of compliments:
 
     ./bin/initialize_data.py 
 
-Add Compliments
----------------
+
+### Add Compliments
 
 Edit bin/initialize_data.py and add compliments as desired. You can substitute up to one word (noun
 or adjective) per sentence. The type field indicates what type of word to substitute. You can also
@@ -43,17 +42,34 @@ add a sentence to be used as-is, by specifying type=None. E.g.:
 
 I'm happy to merge pull requests with appropriate compliments!
 
-Development
------------
+
+### Development
 
 Fork the project on github and git clone your fork, e.g.:
 
     git clone https://github.com/<username>/heartbot.git
 
-Set up virtualenv:
+Create a virtualenv using Python 3. I recommend getting python3 using a package manager (homebrew on OSX), then installing [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/install.html#basic-installation) to that python. 
+
+If you are using virtualenvwrapper:
 
     mkvirtualenv heartbot
+
+Without virtualenvwrapper:
+
+    python3 -m venv venv
+    source venv/bin/activate
+
+Virtualenvwrapper sources the virtual environment automatically, so without it you must source it.
+
+With the virtual environment active, install the requirements:
+
     pip install -r requirements/development.txt
+
+In order to run unit tests, you must install and start mongodb.
+
+    brew install mongodb
+    brew services start mongodb
 
 Run tests with coverage (should be 100%) and check code style:
 
@@ -71,19 +87,36 @@ Run bot:
     ./bin/initialize_data.py            # Clears any current data and adds compliments to datastore
     ./bin/run_bot.py reply_to_mentions  # Check twitter stream for mentions, and reply
     ./bin/run_bot.py post_message       # Post a message to twitter    
+ 
+
+### Validating The Project Locally
+
+This project can be updated locally, using the CircleCI CLI. 
+
+    brew install circleci
+
+Then, you can validate it by running this command in the terminal:
+
+    circleci config validate
+
+Once you know your config is valid, you can test it.
+The CLI allows you to run a single job from CircleCI on your desktop using docker:
+
+    circleci local execute --job build
+
+For more information, see the [CircleCI docs](https://circleci.com/docs/2.0/local-cli/#validate-a-circleci-config)
+
     
-    
-Continuous Integration and Deployment
--------------------------------------
+### Continuous Integration and Deployment
 
 This project is already set up for continuous integration and deployment using circleci, coveralls,
 and Heroku.
 
 Make a new Heroku app, and add the following addons:
 
-	Papertrail
-	MongoLab
-	Heroku Scheduler
+    Papertrail
+    MongoLab
+    Heroku Scheduler
 
 Enable the project on coveralls.io, and copy the repo token
 
