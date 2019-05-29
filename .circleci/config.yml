@@ -1,0 +1,36 @@
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: n42org/tox
+      - image: circleci/mongo:3.6.7-stretch
+    steps:
+      - checkout
+      - run:
+          # https://discuss.circleci.com/t/circleci-python-docker-images-disallow-pip-install-due-to-directory-ownership/12504
+          name: Install Python deps
+          command: |
+            pip install virtualenv
+            tox
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | bash
+            bash scripts/deploy_to_heroku.sh circle
