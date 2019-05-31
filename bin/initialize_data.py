@@ -9,6 +9,7 @@ from bot.messages import get_mongo
 def add_data(mongo, key, data):
     mongo[key].insert_many(data)
 
+
 mongo = get_mongo(os.environ.get('MONGOLAB_URI'))
 
 mongo.sentences.delete_many({})
