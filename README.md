@@ -91,7 +91,11 @@ Run bot:
 
 ### Validating The Project Locally
 
-This project can be updated locally, using the CircleCI CLI. 
+The CircleCI build can be validated locally, using the CircleCI CLI and docker. 
+
+First, install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+Then, install the CircleCI CLI, e.g. using homebrew on OSX:
 
     brew install circleci
 
