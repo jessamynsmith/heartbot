@@ -66,7 +66,7 @@ With the virtual environment active, install the requirements:
 
     pip install -r requirements/development.txt
 
-In order to run unit tests, you must install and start mongodb.
+In order to run unit tests, you must install and start mongodb, e.g. on OSX:
 
     brew install mongodb
     brew services start mongodb
