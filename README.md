@@ -84,9 +84,9 @@ Verify all supported Python versions:
 
 Run bot:
 
-    ./bin/initialize_data.py            # Clears any current data and adds compliments to datastore
-    ./bin/run_bot.py reply_to_mentions  # Check twitter stream for mentions, and reply
-    ./bin/run_bot.py post_message       # Post a message to twitter    
+    PYTHONPATH=. ./bin/initialize_data.py            # Clears any current data and adds compliments to datastore
+    PYTHONPATH=. ./bin/run_bot.py reply_to_mentions  # Check twitter stream for mentions, and reply
+    PYTHONPATH=. ./bin/run_bot.py post_message       # Post a message to twitter    
  
 
 ### Validating The Project Locally
