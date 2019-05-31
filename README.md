@@ -15,9 +15,6 @@ You will need to set these locally to run the bot locally, and on heroku if you 
 - TWITTER_OAUTH_SECRET
 - TWITTER_OAUTH_TOKEN
 
-You will need to set the following environment variable locally:
-export MONGOLAB_URI=mongodb://127.0.0.1/heartbot
-
 This project is set up to be deployed to heroku, using the Heroku Scheduler and MongoLab addons.
 There are two scheduled tasks set up:
 
@@ -70,6 +67,10 @@ In order to run unit tests, you must install and start mongodb, e.g. on OSX:
 
     brew install mongodb
     brew services start mongodb
+
+You will need to set the following environment variable locally:
+
+    export MONGOLAB_URI=mongodb://127.0.0.1/heartbot
 
 Run tests with coverage (should be 100%) and check code style:
 
